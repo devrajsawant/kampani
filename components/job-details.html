@@ -1,0 +1,432 @@
+<section class="kc-jd" id="kcJobDetails">
+  <div class="kc-jd-container">
+
+    <a class="kc-jd-back" href="../index.html#careers">
+      ← Back to Careers
+    </a>
+
+    <div id="kcJdLoading" class="kc-jd-state">
+      Loading job details...
+    </div>
+
+    <div id="kcJdContent" hidden>
+      <div class="kc-jd-heading">
+        <div class="kc-jd-eyebrow">
+          <span></span> CAREERS / CURRENT OPENING
+        </div>
+
+        <h1 id="kcJdTitle"></h1>
+
+        <div class="kc-jd-meta">
+          <span>
+            <strong>Location:</strong>
+            <span id="kcJdLocation"></span>
+          </span>
+          <span>
+            <strong>Experience:</strong>
+            <span id="kcJdExperience"></span>
+          </span>
+        </div>
+      </div>
+
+      <div class="kc-jd-grid">
+
+        <!-- LEFT: JOB DESCRIPTION -->
+        <article class="kc-jd-description">
+
+          <div class="kc-jd-section">
+            <div class="kc-jd-section-number">01</div>
+            <h2>Who We're Looking For</h2>
+            <div id="kcJdLookingFor"
+                 class="kc-jd-description-text"></div>
+          </div>
+
+          <div class="kc-jd-section">
+            <div class="kc-jd-section-number">02</div>
+            <h2>What We Offer</h2>
+            <div id="kcJdOffer"
+                 class="kc-jd-description-text"></div>
+          </div>
+
+        </article>
+
+        <!-- RIGHT: APPLICATION FORM -->
+        <aside class="kc-jd-application">
+          <div class="kc-jd-form-eyebrow">JOIN OUR TEAM</div>
+          <h2>Apply for this role<span>.</span></h2>
+
+          <p class="kc-jd-form-intro">
+            Interested in this opportunity?
+            Share your details and our team
+            will review your application.
+          </p>
+
+          <form id="kcJdForm">
+
+            <label for="kcJdName">
+              Full Name <em>*</em>
+            </label>
+            <input id="kcJdName" type="text"
+              placeholder="Your full name"
+              maxlength="150" required>
+
+            <label for="kcJdEmail">
+              Email Address <em>*</em>
+            </label>
+            <input id="kcJdEmail" type="email"
+              placeholder="you@example.com"
+              maxlength="254" required>
+
+            <label for="kcJdPhone">
+              Phone Number <em>*</em>
+            </label>
+            <input id="kcJdPhone" type="tel"
+              placeholder="+91 9876543210"
+              maxlength="30" required>
+
+            <label for="kcJdResume">
+              Upload Resume <em>*</em>
+            </label>
+            <input id="kcJdResume" type="file"
+              accept=".pdf,.doc,.docx" required>
+            <small>
+              PDF, DOC or DOCX — maximum 2 MB
+            </small>
+
+            <label for="kcJdMessage">
+              Message
+            </label>
+            <textarea id="kcJdMessage"
+              placeholder="Tell us a little about yourself..."
+              maxlength="3000"
+              rows="4"></textarea>
+
+            <label class="kc-jd-consent">
+              <input id="kcJdConsent"
+                type="checkbox" required>
+              <span>
+                I agree to my information and resume
+                being processed for recruitment purposes.
+              </span>
+            </label>
+
+            <button type="submit" id="kcJdSubmit">
+              <span id="kcJdSubmitText">
+                Submit Application
+              </span>
+              <span class="kc-jd-arrow">↗</span>
+            </button>
+
+            <div id="kcJdFormStatus"
+              class="kc-jd-form-status"
+              role="status"
+              aria-live="polite"></div>
+
+          </form>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.kc-jd {
+  background: #f7f7f5 !important;
+  color: #102137 !important;
+  padding: 60px 24px 100px;
+  font-family: 'Manrope', 'DM Sans', Arial, sans-serif;
+}
+
+.kc-jd, .kc-jd * {
+  box-sizing: border-box;
+}
+
+.kc-jd-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kc-jd [hidden] {
+  display: none !important;
+}
+
+.kc-jd-back {
+  display: inline-block;
+  color: #697483 !important;
+  font-size: 13px;
+  text-decoration: none !important;
+  margin-bottom: 48px;
+}
+
+.kc-jd-back:hover {
+  color: #b59465 !important;
+}
+
+.kc-jd-state {
+  color: #697483;
+  font-size: 14px;
+  padding: 30px 0;
+}
+
+.kc-jd-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b59465 !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  margin-bottom: 21px;
+}
+
+.kc-jd-eyebrow > span {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: #b59465;
+}
+
+.kc-jd-heading {
+  margin-bottom: 42px;
+}
+
+.kc-jd h1 {
+  color: #102137 !important;
+  font-size: clamp(36px, 5vw, 60px) !important;
+  font-weight: 500 !important;
+  line-height: 1.16 !important;
+  letter-spacing: -1.5px;
+  margin: 0 0 23px !important;
+}
+
+.kc-jd-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px 35px;
+  color: #697483;
+  font-size: 14px;
+}
+
+.kc-jd-meta strong {
+  color: #102137 !important;
+  font-weight: 600;
+}
+
+.kc-jd-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.12fr) minmax(0, .88fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.kc-jd-description,
+.kc-jd-application {
+  background: #fff !important;
+  border: 1px solid #e9e7e3;
+  padding: 38px;
+}
+
+.kc-jd-section + .kc-jd-section {
+  margin-top: 40px;
+  padding-top: 35px;
+  border-top: 1px solid #e9e7e3;
+}
+
+.kc-jd-section-number {
+  color: #b59465 !important;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+.kc-jd .kc-jd-section h2 {
+  color: #102137 !important;
+  font-size: 23px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 22px !important;
+}
+
+.kc-jd-description-text {
+  color: #697483;
+  font-size: 14px;
+  line-height: 1.95;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.kc-jd-form-eyebrow {
+  color: #b59465 !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  margin-bottom: 15px;
+}
+
+.kc-jd .kc-jd-application h2 {
+  color: #102137 !important;
+  font-size: 27px !important;
+  font-weight: 600 !important;
+  margin: 0 0 13px !important;
+  line-height: 1.3 !important;
+}
+
+.kc-jd-application h2 span {
+  color: #b59465;
+}
+
+.kc-jd-form-intro {
+  color: #697483 !important;
+  font-size: 13px;
+  line-height: 1.85;
+  margin: 0 0 27px !important;
+}
+
+#kcJdForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#kcJdForm > label:not(.kc-jd-consent) {
+  color: #102137 !important;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+#kcJdForm em {
+  color: #b59465;
+  font-style: normal;
+}
+
+#kcJdForm > input,
+#kcJdForm > textarea {
+  display: block;
+  width: 100%;
+  background: #fff !important;
+  border: 1px solid #dedfdf !important;
+  border-radius: 0 !important;
+  color: #102137 !important;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 13px 14px;
+  margin: 0 0 21px;
+  outline: none;
+}
+
+#kcJdForm > input:focus,
+#kcJdForm > textarea:focus {
+  border-color: #b59465 !important;
+}
+
+#kcJdResume {
+  padding: 10px !important;
+  margin-bottom: 7px !important;
+}
+
+#kcJdForm small {
+  color: #88929c;
+  font-size: 11px;
+  margin-bottom: 22px;
+}
+
+#kcJdMessage {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.kc-jd-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 24px;
+  color: #697483;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.kc-jd-consent input {
+  flex-shrink: 0;
+  margin-top: 3px;
+  accent-color: #102137;
+}
+
+#kcJdSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: #102137 !important;
+  color: #fff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 17px 20px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#kcJdSubmit:hover {
+  background: #1b2b40 !important;
+}
+
+#kcJdSubmit:disabled {
+  opacity: .65;
+  cursor: wait;
+}
+
+.kc-jd-arrow {
+  color: #b59465;
+  font-size: 20px;
+}
+
+.kc-jd-form-status {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+
+.kc-jd-form-status:empty {
+  display: none;
+}
+
+.kc-jd-form-status.success {
+  color: #28774d;
+}
+
+.kc-jd-form-status.error {
+  color: #b13b3b;
+}
+
+@media (max-width: 850px) {
+  .kc-jd-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .kc-jd {
+    padding: 45px 18px 70px;
+  }
+
+  .kc-jd-back {
+    margin-bottom: 32px;
+  }
+
+  .kc-jd-description,
+  .kc-jd-application {
+    padding: 26px 22px;
+  }
+
+  .kc-jd h1 {
+    font-size: 38px !important;
+  }
+
+  .kc-jd .kc-jd-section h2 {
+    font-size: 21px !important;
+  }
+}
+</style>

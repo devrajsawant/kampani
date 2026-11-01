@@ -1,0 +1,362 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+<footer class="kc-footer" id="kc-footer">
+  <div class="kc-footer-inner">
+
+    <div class="kc-footer-grid">
+
+      <!-- Brand -->
+
+<!-- Brand -->
+<div class="kc-footer-brand">
+  <a href="#top" class="kc-footer-logo" aria-label="Kampani Capital home">
+    <img
+      src="https://zsites-60092316313.zohostratus.in/Kampani-Capital-Logo-on-Navy_1.webp"
+      alt="Kampani Capital"
+      loading="lazy"
+    />
+  </a>
+  <p>
+    Bespoke Financial Solutions <br/>Best Of India &amp; The world
+  </p>
+</div>
+
+
+      <!-- Explore -->
+      <nav class="kc-footer-explore" aria-label="Footer navigation">
+        <h3>Explore</h3>
+
+        <div class="kc-footer-links">
+          <div>
+            <a href="#about">About</a>
+            <a href="#expertise">Our Expertise</a>
+            <a href="#leadership">Leadership</a>
+            <a href="#events">Events</a>
+          </div>
+
+          <div>
+            <a href="#ceos-desk">Insights</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Contact -->
+      <div class="kc-footer-contact">
+        <h3>Contact</h3>
+
+        <a href="mailto:ceo@kampanicapital.com"
+           class="kc-footer-email">
+          ceo@kampanicapital.com
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <p>
+          4th floor, Awfis, VIOS Towers, NCP, Sewri-Chembur link road,  Wadala, Mumbai 400037
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="kc-footer-bottom">
+      <span>
+        © <span id="kcFooterYear">2026</span>
+        Kampani Capital. All rights reserved.
+      </span>
+
+      <a href="disclaimer/">Disclaimer ↗</a>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .kc-footer,
+  .kc-footer * {
+    box-sizing: border-box;
+  }
+
+  .kc-footer {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #051C35 !important;
+    color: #ffffff;
+    padding: 55px 24px 0;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Very subtle decorative corner rings */
+  .kc-footer::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(181,148,101,.11);
+    border-radius: 50%;
+    right: -190px;
+    top: -230px;
+    pointer-events: none;
+  }
+
+  .kc-footer::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 260px;
+    height: 260px;
+    border: 1px solid rgba(181,148,101,.07);
+    border-radius: 50%;
+    right: -145px;
+    top: -185px;
+    pointer-events: none;
+  }
+
+  .kc-footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .kc-footer-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1.1fr 1fr;
+    gap: 55px;
+    padding-bottom: 52px;
+  }
+
+  /* Brand */
+
+
+/* Footer logo image */
+.kc-footer-logo {
+  display: inline-flex;
+  align-items: center;
+  max-width: 260px;
+  width: 100%;
+  text-decoration: none !important;
+  line-height: 0;
+  outline-offset: 5px;
+}
+
+.kc-footer-logo img {
+  display: block;
+  width: 100%;
+  max-width: 245px;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+  object-position: left center;
+  border: 0;
+}
+
+/* Brand subtitle */
+.kc-footer-subbrand {
+  margin-top: 16px;
+  color: #b59465;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+  line-height: 1.8;
+}
+
+/* Brand description */
+.kc-footer-brand p {
+  max-width: 285px;
+  margin: 16px 0 0 !important;
+  color: #b6c2d0 !important;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* Mobile logo sizing */
+@media (max-width: 600px) {
+  .kc-footer-logo {
+    max-width: 220px;
+  }
+
+  .kc-footer-logo img {
+    max-width: 210px;
+    max-height: 75px;
+  }
+
+  .kc-footer-subbrand {
+    margin-top: 12px;
+    font-size: 8px;
+    letter-spacing: 1.4px;
+  }
+}
+
+
+  .kc-footer-subbrand {
+    margin-top: 9px;
+    color: #b59465;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    line-height: 1.6;
+  }
+
+  .kc-footer-brand p {
+    max-width: 285px;
+    margin: 19px 0 0 !important;
+    color: #b6c2d0 !important;
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  /* Column headings */
+
+  .kc-footer h3 {
+    margin: 3px 0 22px !important;
+    color: #b59465 !important;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: .5px;
+    line-height: 1.4 !important;
+  }
+
+  /* Explore - two columns */
+
+  .kc-footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .kc-footer-links > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .kc-footer-links a {
+    color: #d6dee8 !important;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none !important;
+    transition: color .2s;
+  }
+
+  .kc-footer-links a:hover {
+    color: #c8a878 !important;
+  }
+
+  /* Contact */
+
+  .kc-footer-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none !important;
+    overflow-wrap: anywhere;
+  }
+
+  .kc-footer-email span {
+    color: #b59465;
+    font-size: 17px;
+    transition: transform .2s;
+  }
+
+  .kc-footer-email:hover span {
+    transform: translate(2px, -2px);
+  }
+
+  .kc-footer-contact p {
+    margin: 18px 0 0 !important;
+    color: #b6c2d0 !important;
+    font-size: 12px;
+    line-height: 1.9;
+  }
+
+  /* Bottom bar */
+
+  .kc-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 19px 0 23px;
+    border-top: 1px solid rgba(255,255,255,.14);
+  }
+
+  .kc-footer-bottom span {
+    color: #a7b5c6;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .kc-footer-bottom a {
+    color: #c4cfdb !important;
+    font-size: 11px;
+    text-decoration: none !important;
+    transition: color .2s;
+  }
+
+  .kc-footer-bottom a:hover {
+    color: #b59465 !important;
+  }
+
+  /* Tablet */
+
+  @media (max-width: 950px) {
+    .kc-footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 35px 40px;
+    }
+
+    .kc-footer-contact {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* Mobile */
+
+  @media (max-width: 600px) {
+    .kc-footer {
+      padding: 42px 20px 0;
+    }
+
+    .kc-footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding-bottom: 35px;
+    }
+
+    .kc-footer-contact {
+      grid-column: auto;
+    }
+
+    .kc-footer-logo {
+      font-size: 21px;
+      letter-spacing: 1.5px;
+    }
+
+    .kc-footer-brand p {
+      margin-top: 14px !important;
+    }
+
+    .kc-footer h3 {
+      margin-bottom: 15px !important;
+    }
+
+    .kc-footer-links {
+      max-width: 340px;
+    }
+
+    .kc-footer-bottom {
+      padding: 17px 0 22px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+</style>

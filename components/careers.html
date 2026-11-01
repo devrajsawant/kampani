@@ -1,0 +1,219 @@
+<section class="kc-careers" id="careers">
+  <div class="kc-careers-container">
+
+    <div class="kc-careers-header">
+      <div class="kc-careers-eyebrow">
+        <span></span> 07 / CAREERS
+      </div>
+
+      <div class="kc-careers-heading-row">
+        <h2>Explore Career<br>Opportunities<span>.</span></h2>
+
+        <p>
+          Discover opportunities to grow your career with
+          Kampani Capital. Explore our current openings
+          and find a role that matches your expertise.
+        </p>
+      </div>
+    </div>
+
+    <div class="kc-careers-list" id="kcJobsList">
+      <div class="kc-careers-message">
+        Loading job openings...
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.kc-careers {
+  background: #f7f7f5 !important;
+  padding: 85px 24px 95px;
+  font-family: 'Manrope', 'DM Sans', Arial, sans-serif;
+}
+
+.kc-careers,
+.kc-careers * {
+  box-sizing: border-box;
+}
+
+.kc-careers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.kc-careers-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #b59465 !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.kc-careers-eyebrow span {
+  width: 28px;
+  height: 1px;
+  background: #b59465;
+}
+
+.kc-careers-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 45px;
+  margin-bottom: 40px;
+}
+
+.kc-careers h2 {
+  color: #102137 !important;
+  font-size: clamp(38px, 4.8vw, 60px) !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -1.8px;
+  margin: 0 !important;
+}
+
+.kc-careers h2 span {
+  color: #b59465;
+}
+
+.kc-careers-heading-row p {
+  max-width: 350px;
+  color: #697483 !important;
+  font-size: 14px;
+  line-height: 1.9;
+  margin: 0 0 5px !important;
+}
+
+/* Two cards per row */
+.kc-careers-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.kc-job-card {
+  background: #ffffff !important;
+  border: 1px solid #e9e7e3;
+  padding: 25px 28px;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s ease,
+              transform .2s ease;
+}
+
+.kc-job-card:hover {
+  border-color: #b59465;
+  transform: translateY(-2px);
+}
+
+.kc-job-label {
+  display: inline-block;
+  color: #b59465 !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 13px;
+}
+
+.kc-careers .kc-job-title {
+  color: #102137 !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 17px !important;
+  letter-spacing: -.4px;
+}
+
+.kc-job-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.kc-job-meta-item {
+  color: #697483 !important;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.kc-job-meta-item strong {
+  color: #102137 !important;
+  font-weight: 600;
+}
+
+.kc-job-bottom {
+  border-top: 1px solid #e9e7e3;
+  padding-top: 16px;
+  margin-top: auto;
+}
+
+.kc-job-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #102137 !important;
+  text-decoration: none !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.kc-job-link:hover {
+  color: #b59465 !important;
+}
+
+.kc-job-link-arrow {
+  color: #b59465;
+  font-size: 19px;
+  transition: transform .2s ease;
+}
+
+.kc-job-link:hover .kc-job-link-arrow {
+  transform: translate(3px, -3px);
+}
+
+.kc-careers-message {
+  grid-column: 1 / -1;
+  color: #697483 !important;
+  font-size: 14px;
+  padding: 25px 0;
+}
+
+@media (max-width: 800px) {
+  .kc-careers-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .kc-careers-heading-row p {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 650px) {
+  .kc-careers {
+    padding: 65px 20px 75px;
+  }
+
+  .kc-careers h2 {
+    font-size: 39px !important;
+    letter-spacing: -1px;
+  }
+
+  .kc-careers-list {
+    grid-template-columns: 1fr;
+  }
+
+  .kc-job-card {
+    min-height: 215px;
+    padding: 24px;
+  }
+}
+</style>

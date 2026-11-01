@@ -1,0 +1,613 @@
+
+<div id="kc-about">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    /* =====================================
+       KAMPANI CAPITAL - ABOUT SECTION
+       ===================================== */
+
+    #kc-about {
+      --kc-navy: #1b2b40;
+      --kc-dark: #091b34;
+      --kc-text: #52657e;
+      --kc-gold: #b59465;
+      --kc-border: #e3e7eb;
+      --kc-soft: #f7f8fa;
+
+      width: 100%;
+      background: #ffffff;
+      color: var(--kc-navy);
+      font-family: 'DM Sans', sans-serif;
+      box-sizing: border-box;
+    }
+
+    #kc-about *,
+    #kc-about *::before,
+    #kc-about *::after {
+      box-sizing: border-box;
+    }
+
+    #kc-about .kc-container {
+      width: min(1135px, calc(100% - 80px));
+      margin: 0 auto;
+    }
+
+    /* =====================================
+       1. WHO WE ARE
+       ===================================== */
+
+    #kc-about .kc-about-main {
+      padding: 100px 0 95px;
+    }
+
+    #kc-about .kc-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 75px;
+      align-items: start;
+    }
+
+    #kc-about .kc-eyebrow {
+      display: block;
+      color: var(--kc-gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    #kc-about .kc-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(38px, 4vw, 50px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.06em;
+      color: var(--kc-navy);
+      margin: 0;
+    }
+
+    #kc-about .kc-description {
+      padding-top: 34px;
+    }
+
+    #kc-about .kc-description p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--kc-text);
+      margin: 0 0 18px;
+        text-align: justify;
+    }
+
+    #kc-about .kc-description p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Statistics */
+    #kc-about .kc-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 78px;
+      border-top: 1px solid var(--kc-border);
+      border-bottom: 1px solid var(--kc-border);
+    }
+
+    #kc-about .kc-stat {
+      padding: 33px 38px 29px;
+      min-height: 126px;
+    }
+
+    #kc-about .kc-stat:first-child {
+      padding-left: 0;
+    }
+
+    #kc-about .kc-stat + .kc-stat {
+      border-left: 1px solid var(--kc-border);
+    }
+
+    #kc-about .kc-stat-value {
+      font-family: 'Manrope', sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.065em;
+      line-height: 1.2;
+      color: var(--kc-navy);
+      margin: 0 0 6px;
+    }
+
+    #kc-about .kc-stat-label {
+      color: #718198;
+      font-size: 12px;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* =====================================
+       2. VISION AND PHILOSOPHY
+       ===================================== */
+
+    #kc-about .kc-principles {
+      background: var(--kc-soft);
+      padding: 100px 0 105px;
+      border-top: 1px solid #eef0f3;
+    }
+
+    #kc-about .kc-principles-header {
+      max-width: 700px;
+      margin-bottom: 48px;
+    }
+
+    #kc-about .kc-principles-subtitle {
+      margin: 18px 0 0;
+      color: var(--kc-text);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    #kc-about .kc-principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    #kc-about .kc-principle-card {
+      background: #ffffff;
+      border: 1px solid var(--kc-border);
+      padding: 40px 38px 44px;
+      position: relative;
+      overflow: hidden;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    #kc-about .kc-principle-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 65px;
+      height: 3px;
+      background: var(--kc-gold);
+    }
+
+    #kc-about .kc-principle-card:hover {
+      transform: translateY(-5px);
+      border-color: #d9c6aa;
+      box-shadow: 0 18px 40px rgba(9,27,52,0.06);
+    }
+
+    #kc-about .kc-card-number {
+      font-size: 11px;
+      color: var(--kc-gold);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 34px;
+    }
+
+    #kc-about .kc-card-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      color: var(--kc-navy);
+      margin: 0 0 18px;
+    }
+
+    #kc-about .kc-card-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--kc-text);
+      margin: 0;
+      text-align: justify;
+    }
+
+    /* =====================================
+       3. CORE VALUES
+       ===================================== */
+
+    #kc-about .kc-values {
+      margin-top: 85px;
+    }
+
+    #kc-about .kc-values-header {
+      margin-bottom: 34px;
+    }
+
+    #kc-about .kc-values-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      color: var(--kc-navy);
+      margin: 0;
+    }
+
+    #kc-about .kc-values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    #kc-about .kc-value-card {
+      background: #ffffff;
+      border: 1px solid var(--kc-border);
+      padding: 30px 24px;
+      min-height: 165px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 25px;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    #kc-about .kc-value-card:hover {
+      border-color: #d9c6aa;
+      background: #fffefa;
+    }
+
+    #kc-about .kc-value-icon {
+      width: 38px;
+      height: 38px;
+      color: var(--kc-gold);
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #kc-about .kc-value-name {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--kc-navy);
+      margin: 0;
+    }
+
+    /* =====================================
+       RESPONSIVE
+       ===================================== */
+
+    @media (max-width: 900px) {
+      #kc-about .kc-about-main {
+        padding: 80px 0;
+      }
+
+      #kc-about .kc-intro {
+        gap: 40px;
+      }
+
+      #kc-about .kc-description {
+        padding-top: 25px;
+      }
+
+      #kc-about .kc-stats {
+        margin-top: 60px;
+      }
+
+      #kc-about .kc-stat {
+        padding: 28px 22px;
+      }
+
+      #kc-about .kc-principles {
+        padding: 80px 0;
+      }
+
+      #kc-about .kc-principle-card {
+        padding: 32px 28px;
+      }
+
+      #kc-about .kc-values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 650px) {
+      #kc-about .kc-container {
+        width: calc(100% - 38px);
+      }
+
+      #kc-about .kc-about-main {
+        padding: 65px 0 75px;
+      }
+
+      #kc-about .kc-intro {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      #kc-about .kc-heading {
+        font-size: 39px;
+      }
+
+      #kc-about .kc-description {
+        padding-top: 0;
+      }
+
+      #kc-about .kc-description p {
+        font-size: 14px;
+        line-height: 1.85;
+      }
+
+      #kc-about .kc-stats {
+        grid-template-columns: 1fr;
+        margin-top: 45px;
+      }
+
+      #kc-about .kc-stat {
+        padding: 24px 0;
+        min-height: auto;
+      }
+
+      #kc-about .kc-stat:first-child {
+        padding-top: 26px;
+      }
+
+      #kc-about .kc-stat + .kc-stat {
+        border-left: none;
+        border-top: 1px solid var(--kc-border);
+      }
+
+      #kc-about .kc-stat-value {
+        font-size: 34px;
+      }
+
+      #kc-about .kc-principles {
+        padding: 70px 0 75px;
+      }
+
+      #kc-about .kc-principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #kc-about .kc-principles-header {
+        margin-bottom: 34px;
+      }
+
+      #kc-about .kc-card-title {
+        font-size: 23px;
+      }
+
+      #kc-about .kc-values {
+        margin-top: 60px;
+      }
+
+      #kc-about .kc-values-title {
+        font-size: 27px;
+      }
+
+      #kc-about .kc-values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      #kc-about .kc-value-card {
+        padding: 22px 18px;
+        min-height: 155px;
+      }
+
+      #kc-about .kc-value-name {
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #kc-about .kc-principle-card,
+      #kc-about .kc-value-card {
+        transition: none;
+      }
+    }
+  </style>
+
+  <!-- =====================================
+       WHO WE ARE
+       ===================================== -->
+
+  <section id="about" class="kc-about-main">
+    <div class="kc-container">
+
+      <div class="kc-intro">
+
+        <div>
+          <span class="kc-eyebrow">
+            01 / WHO WE ARE
+          </span>
+
+          <h2 class="kc-heading">
+            Who We Are
+          </h2>
+        </div>
+
+        <div class="kc-description">
+          <p>
+           Kampani Capital is a boutique financial advisory firm which assists early stage/emerging/mid market firms on debt and equity fundraising in addition to helping them optimise their funding mix. 
+          </p>
+
+          <p>
+         We also help Local and Overseas asset managers with capital introductions to our vast asset allocator network both in India as well as across international markets.We are also active in the M&A advisory space helping clients with strategic investments/divestments in local and global marketsOur founders bring a combined 50+ years of experience across Indian Private and Global banks.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Statistics -->
+      <div class="kc-stats">
+
+        <div class="kc-stat">
+          <h3 class="kc-stat-value">50+</h3>
+          <p class="kc-stat-label">
+            Years of combined founder experience
+          </p>
+        </div>
+
+        <div class="kc-stat">
+          <h3 class="kc-stat-value">5</h3>
+          <p class="kc-stat-label">
+            Core advisory offerings
+          </p>
+        </div>
+
+        <div class="kc-stat">
+          <h3 class="kc-stat-value">14</h3>
+          <p class="kc-stat-label">
+            Cities present across India and overseas through partners and stake holders
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================
+       VISION, PHILOSOPHY AND VALUES
+       ===================================== -->
+
+  <section class="kc-principles">
+    <div class="kc-container">
+
+      <div class="kc-principles-header">
+        <span class="kc-eyebrow">
+          02 / WHAT DRIVES US
+        </span>
+
+        <h2 class="kc-heading">
+          Our Vision &amp; Philosophy
+        </h2>
+
+        <p class="kc-principles-subtitle">
+          Guided by a commitment to excellence,
+          client-first thinking, and enduring
+          professional relationships.
+        </p>
+      </div>
+
+      <!-- Vision and Philosophy Cards -->
+      <div class="kc-principles-grid">
+
+        <article class="kc-principle-card">
+          <span class="kc-card-number">01 / VISION</span>
+
+          <h3 class="kc-card-title">
+            Our Vision
+          </h3>
+
+          <p class="kc-card-text">
+            Our vision is to offer best-in-class
+            advisory services to our clients at
+            affordable prices, keeping in mind
+            the ever-changing world around us.
+          </p>
+        </article>
+
+        <article class="kc-principle-card">
+          <span class="kc-card-number">02 / PHILOSOPHY</span>
+
+          <h3 class="kc-card-title">
+            Our Philosophy
+          </h3>
+
+          <p class="kc-card-text">
+            Our philosophy is to put our customers
+            first, offering them customised solutions
+            across all parts of the value chain.
+            We believe in mutual respect and fostering
+            a culture of empathy and teamwork with
+            clients as well as within the organisation.
+            We believe in creating ownership within
+            the organisation to ensure client delivery
+            always comes first.
+          </p>
+        </article>
+
+      </div>
+
+      <!-- Core Values -->
+      <div class="kc-values">
+
+        <div class="kc-values-header">
+          <span class="kc-eyebrow">
+            THE PRINCIPLES WE LIVE BY
+          </span>
+
+          <h3 class="kc-values-title">
+            Our Core Values
+          </h3>
+        </div>
+
+        <div class="kc-values-grid">
+
+          <!-- Honesty -->
+          <div class="kc-value-card">
+            <svg class="kc-value-icon"
+                 viewBox="0 0 24 24"
+                 aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+
+            <p class="kc-value-name">
+              Honesty &amp;<br>Perseverance
+            </p>
+          </div>
+
+          <!-- Respect -->
+          <div class="kc-value-card">
+            <svg class="kc-value-icon"
+                 viewBox="0 0 24 24"
+                 aria-hidden="true">
+              <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+            </svg>
+
+            <p class="kc-value-name">
+              Mutual Self<br>Respect
+            </p>
+          </div>
+
+          <!-- Teamwork -->
+          <div class="kc-value-card">
+            <svg class="kc-value-icon"
+                 viewBox="0 0 24 24"
+                 aria-hidden="true">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+
+            <p class="kc-value-name">
+              Teamwork
+            </p>
+          </div>
+
+          <!-- Ownership -->
+          <div class="kc-value-card">
+            <svg class="kc-value-icon"
+                 viewBox="0 0 24 24"
+                 aria-hidden="true">
+              <circle cx="12" cy="8" r="5"/>
+              <path d="m8.2 12.4-1.2 9 5-3 5 3-1.2-9"/>
+              <path d="m10 8 1.5 1.5L14 7"/>
+            </svg>
+
+            <p class="kc-value-name">
+              Ownership
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</div>

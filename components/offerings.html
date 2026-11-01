@@ -1,0 +1,445 @@
+
+<div id="kc-offerings">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    /* =====================================
+       KAMPANI CAPITAL - OUR OFFERINGS
+       ===================================== */
+
+    #kc-offerings {
+      --kc-navy: #1b2b40;
+      --kc-dark: #091b34;
+      --kc-text: #697483;
+      --kc-gold: #b59465;
+      --kc-border: #e7e9e8;
+      --kc-card-bg: #f7f7f5;
+
+      width: 100%;
+      background: #ffffff !important;
+      color: var(--kc-navy);
+      font-family: 'DM Sans', sans-serif;
+      box-sizing: border-box;
+    }
+
+    #kc-offerings *,
+    #kc-offerings *::before,
+    #kc-offerings *::after {
+      box-sizing: border-box;
+    }
+
+    /* Container */
+
+    #kc-offerings .kc-container {
+      width: min(1135px, calc(100% - 80px));
+      margin: 0 auto;
+      padding: 85px 0 95px;
+    }
+
+    /* =====================================
+       SECTION HEADER
+       ===================================== */
+
+    #kc-offerings .kc-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+      margin-bottom: 42px;
+    }
+
+    #kc-offerings .kc-eyebrow {
+      display: block;
+      color: var(--kc-gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    #kc-offerings .kc-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(36px, 4vw, 50px);
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      line-height: 1.2;
+      color: var(--kc-navy);
+      margin: 0;
+    }
+
+    #kc-offerings .kc-header-description {
+      max-width: 440px;
+      font-size: 14px;
+      line-height: 1.9;
+      color: var(--kc-text);
+      margin: 15px 0 0;
+    }
+
+    /* =====================================
+       CARDS GRID
+       Desktop: 3 + 2 centered
+       ===================================== */
+
+    #kc-offerings .kc-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 16px;
+      border: none;
+    }
+
+    #kc-offerings .kc-card {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      min-width: 0;
+      min-height: 270px;
+      padding: 30px 30px 48px;
+      background: var(--kc-card-bg);
+      border: 1px solid var(--kc-border);
+      border-radius: 5px;
+      text-decoration: none !important;
+      box-shadow: none;
+      transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    /* Center second row */
+
+    #kc-offerings .kc-card:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+
+    #kc-offerings .kc-card:nth-child(5) {
+      grid-column: 4 / span 2;
+    }
+
+    /* Hover */
+
+    #kc-offerings .kc-card:hover {
+      background: #ffffff;
+      border-color: #d6c3a7;
+      box-shadow: 0 10px 30px rgba(16, 33, 55, 0.06);
+      transform: translateY(-3px);
+    }
+
+    #kc-offerings .kc-card:focus-visible {
+      outline: 2px solid var(--kc-gold);
+      outline-offset: 3px;
+    }
+
+    /* =====================================
+       CARD CONTENT
+       ===================================== */
+
+    #kc-offerings .kc-number {
+      display: block;
+      color: #9ca8b4;
+      font-size: 11px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    #kc-offerings .kc-icon {
+      display: block;
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      color: var(--kc-gold);
+      margin-bottom: 21px;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    #kc-offerings .kc-card-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.4;
+      color: var(--kc-navy);
+      margin: 0 0 12px;
+    }
+
+    #kc-offerings .kc-card-text {
+      font-size: 12.5px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--kc-text);
+      margin: 0;
+      padding-right: 5px;
+      text-align: justify;
+    }
+
+    #kc-offerings .kc-card-arrow {
+      position: absolute;
+      bottom: 22px;
+      right: 25px;
+      color: var(--kc-gold);
+      font-size: 20px;
+      line-height: 1;
+      transition: transform 0.2s ease;
+    }
+
+    #kc-offerings .kc-card:hover .kc-card-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    /* =====================================
+       TABLET
+       2 columns + final full-width card
+       ===================================== */
+
+    @media (max-width: 900px) {
+      #kc-offerings .kc-container {
+        padding: 75px 0;
+      }
+
+      #kc-offerings .kc-header {
+        gap: 30px;
+      }
+
+      #kc-offerings .kc-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      #kc-offerings .kc-card,
+      #kc-offerings .kc-card:nth-child(4),
+      #kc-offerings .kc-card:nth-child(5) {
+        grid-column: auto;
+      }
+
+      #kc-offerings .kc-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      #kc-offerings .kc-card {
+        min-height: 250px;
+      }
+    }
+
+    /* =====================================
+       MOBILE
+       Single column
+       ===================================== */
+
+    @media (max-width: 650px) {
+      #kc-offerings .kc-container {
+        width: calc(100% - 38px);
+        padding: 65px 0 70px;
+      }
+
+      #kc-offerings .kc-header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      #kc-offerings .kc-heading {
+        font-size: 38px;
+      }
+
+      #kc-offerings .kc-header-description {
+        margin-top: 10px;
+        font-size: 13.5px;
+      }
+
+      #kc-offerings .kc-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      #kc-offerings .kc-card,
+      #kc-offerings .kc-card:nth-child(4),
+      #kc-offerings .kc-card:nth-child(5),
+      #kc-offerings .kc-card:last-child {
+        grid-column: 1 / -1;
+      }
+
+      #kc-offerings .kc-card {
+        min-height: 225px;
+        padding: 25px 25px 48px;
+      }
+
+      #kc-offerings .kc-number {
+        margin-bottom: 18px;
+      }
+
+      #kc-offerings .kc-icon {
+        margin-bottom: 17px;
+      }
+
+      #kc-offerings .kc-card-arrow {
+        bottom: 20px;
+        right: 24px;
+      }
+    }
+
+    /* Reduced motion */
+
+    @media (prefers-reduced-motion: reduce) {
+      #kc-offerings .kc-card,
+      #kc-offerings .kc-card-arrow {
+        transition: none;
+      }
+
+      #kc-offerings .kc-card:hover {
+        transform: none;
+      }
+    }
+  </style>
+
+  <section id="expertise" class="kc-container">
+
+    <!-- SECTION HEADER -->
+
+    <div class="kc-header">
+      <div>
+        <span class="kc-eyebrow">
+          03 / OUR EXPERTISE
+        </span>
+
+        <h2 class="kc-heading">
+          Our Offering
+        </h2>
+      </div>
+
+      <p class="kc-header-description">
+        Advisory on Equity & Debt fundraising, Capital Introductions for Asset Managers ,Sales & Strategic Consultancy, Family Office & Corporate Advisory.
+      </p>
+    </div>
+
+    <!-- SERVICE CARDS -->
+
+    <div class="kc-grid">
+
+      <!-- 01 EQUITY FUNDRAISING -->
+
+      <a href="#contact" class="kc-card">
+        <span class="kc-number">01</span>
+
+        <svg class="kc-icon" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="m12 2 10 10-10 10L2 12 12 2z" />
+        </svg>
+
+        <h3 class="kc-card-title">
+          Equity Fundraising
+        </h3>
+
+        <p class="kc-card-text">
+          Capital introduction for SMEs, mid-market
+          and early-stage companies, with equity
+          fundraising deal sizes up to USD 50 million.
+        </p>
+
+        <span class="kc-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- 02 DEBT ADVISORY -->
+
+      <a href="#contact" class="kc-card">
+        <span class="kc-number">02</span>
+
+        <svg class="kc-icon" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="M3 8c3-4 6 4 9 0s6-4 9 0" />
+          <path d="M3 13c3-4 6 4 9 0s6-4 9 0" />
+          <path d="M3 18c3-4 6 4 9 0s6-4 9 0" />
+        </svg>
+
+        <h3 class="kc-card-title">
+          Debt Advisory
+        </h3>
+
+        <p class="kc-card-text">
+          Supporting emerging and mid-market firms
+          with domestic and foreign-currency
+          debt solutions.
+        </p>
+
+        <span class="kc-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- 03 CAPITAL INTRODUCTION -->
+
+      <a href="#contact" class="kc-card">
+        <span class="kc-number">03</span>
+
+        <svg class="kc-icon" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="M5 19 19 5" />
+          <path d="M8 5h11v11" />
+        </svg>
+
+        <h3 class="kc-card-title">
+          Capital Introduction
+        </h3>
+
+        <p class="kc-card-text">
+          Helping asset managers identify and connect
+          with potential investors, with both
+          light-touch and high-touch options.
+        </p>
+
+        <span class="kc-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- 04 SALES CONSULTANCY -->
+
+      <a href="#contact" class="kc-card">
+        <span class="kc-number">04</span>
+
+        <svg class="kc-icon" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <path d="m4 8 6 6 4-4 6 6" />
+          <path d="M15 16h5v-5" />
+        </svg>
+
+        <h3 class="kc-card-title">
+          Sales Consultancy
+        </h3>
+
+        <p class="kc-card-text">
+          Market scoping and introductions to
+          potential customers across key Indian
+          and international markets.
+        </p>
+
+        <span class="kc-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- 05 FAMILY OFFICE & CORPORATE ADVISORY -->
+
+      <a href="#contact" class="kc-card">
+        <span class="kc-number">05</span>
+
+        <svg class="kc-icon" viewBox="0 0 24 24"
+          aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="12" cy="12" r="1.5" />
+        </svg>
+
+        <h3 class="kc-card-title">
+          Family Office &amp; Corporate Advisory
+        </h3>
+
+        <p class="kc-card-text">
+          Tailored advisory across listed, unlisted
+          and debt investment opportunities.
+        </p>
+
+        <span class="kc-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
+    </div>
+  </section>
+</div>

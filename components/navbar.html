@@ -1,0 +1,323 @@
+
+<div id="kc-navbar">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+    #kc-navbar {
+      width: 100%;
+      background: #091b34;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      position: relative;
+      z-index: 1000;
+    }
+
+    #kc-navbar,
+    #kc-navbar * {
+      box-sizing: border-box;
+    }
+
+    #kc-navbar .kc-container {
+      max-width: 1440px;
+      min-height: 100px;
+      margin: 0 auto;
+      padding: 0 44px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    /* Logo - Larger and Wider */
+
+    #kc-navbar .kc-logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    #kc-navbar .kc-logo img {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      height: 76px;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    /* Right Navigation */
+
+    #kc-navbar .kc-right {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      margin-left: auto;
+    }
+
+    #kc-navbar .kc-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    #kc-navbar .kc-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 0;
+      color: #e5e9ef !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.15px;
+      line-height: 1.5;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: color 0.25s ease;
+    }
+
+    /* Gold Underline */
+
+    #kc-navbar .kc-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 0;
+      height: 1.5px;
+      background: #b59465;
+      transition: width 0.25s ease;
+    }
+
+    #kc-navbar .kc-links a:hover,
+    #kc-navbar .kc-links a.kc-active {
+      color: #c8ad83 !important;
+    }
+
+    #kc-navbar .kc-links a:hover::after,
+    #kc-navbar .kc-links a.kc-active::after {
+      width: 100%;
+    }
+
+    /* CTA Button */
+
+    #kc-navbar .kc-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 13px 19px;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: #ffffff !important;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      text-decoration: none !important;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+    }
+
+    #kc-navbar .kc-cta span {
+      color: #c8ad83;
+      font-size: 16px;
+      transition: transform 0.25s ease;
+    }
+
+    #kc-navbar .kc-cta:hover {
+      border-color: #b59465;
+      background: rgba(255,255,255,0.06);
+    }
+
+    #kc-navbar .kc-cta:hover span {
+      transform: translate(3px, -3px);
+    }
+
+    /* Hamburger */
+
+    #kc-navbar .kc-toggle {
+      display: none;
+      background: transparent;
+      border: 0;
+      color: #ffffff;
+      font-size: 26px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    #kc-navbar .kc-mobile-cta {
+      display: none;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 1200px) {
+      #kc-navbar .kc-container {
+        padding: 0 26px;
+      }
+
+      #kc-navbar .kc-logo img {
+        width: 250px;
+        height: 68px;
+      }
+
+      #kc-navbar .kc-links {
+        gap: 18px;
+      }
+
+      #kc-navbar .kc-right {
+        gap: 22px;
+      }
+
+      #kc-navbar .kc-links a {
+        font-size: 13px;
+      }
+    }
+
+    /* Mobile Menu */
+
+    @media (max-width: 1050px) {
+      #kc-navbar .kc-container {
+        min-height: 82px;
+        justify-content: space-between;
+      }
+
+      #kc-navbar .kc-logo img {
+        width: 250px;
+        max-width: 100%;
+        height: 60px;
+      }
+
+      #kc-navbar .kc-right {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #0b203a;
+        padding: 20px 26px 28px;
+        border-top: 1px solid rgba(255,255,255,0.12);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+
+      #kc-navbar .kc-right.kc-open {
+        display: flex;
+      }
+
+      #kc-navbar .kc-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      #kc-navbar .kc-links a {
+        width: fit-content;
+        padding: 13px 0;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      #kc-navbar .kc-links a::after {
+        bottom: 7px;
+      }
+
+      #kc-navbar .kc-desktop-cta {
+        display: none;
+      }
+
+      #kc-navbar .kc-mobile-cta {
+        display: inline-flex;
+        align-self: flex-start;
+      }
+
+      #kc-navbar .kc-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+
+    /* Small Mobile Screens */
+
+    @media (max-width: 480px) {
+      #kc-navbar .kc-container {
+        padding: 0 18px;
+        min-height: 74px;
+        gap: 10px;
+      }
+
+      #kc-navbar .kc-logo {
+        min-width: 0;
+      }
+
+      #kc-navbar .kc-logo img {
+        width: 220px;
+        max-width: 100%;
+        height: 52px;
+      }
+
+      #kc-navbar .kc-right {
+        padding: 18px 20px 25px;
+      }
+
+      #kc-navbar .kc-toggle {
+        flex-shrink: 0;
+      }
+    }
+  </style>
+
+  <header class="kc-header">
+    <div class="kc-container">
+
+      <!-- Logo -->
+      <a href="#top" class="kc-logo" aria-label="Kampani Capital home">
+        <img
+          src="https://zsites-60092316313.zohostratus.in/Kampani-Capital-Logo-on-Navy_1.webp"
+          alt="Kampani Capital"
+        />
+      </a>
+
+      <!-- Navigation -->
+      <div class="kc-right" id="kc-nav-menu">
+
+        <nav class="kc-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#expertise">Our Expertise</a>
+          <a href="#leadership">Leadership</a>
+          <a href="#blogs">Insights</a>
+          <a href="#events">Events</a>
+          <a href="#careers">Careers</a>
+        </nav>
+
+        <!-- Desktop CTA -->
+        <a href="#contact" class="kc-cta kc-desktop-cta">
+          Let's Connect <span aria-hidden="true">↗</span>
+        </a>
+
+        <!-- Mobile CTA -->
+        <a href="#contact" class="kc-cta kc-mobile-cta">
+          Let's Connect <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+      <!-- Hamburger -->
+      <button
+        type="button"
+        class="kc-toggle"
+        id="kc-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="kc-nav-menu"
+      >
+        ☰
+      </button>
+
+    </div>
+  </header>
+
+</div>

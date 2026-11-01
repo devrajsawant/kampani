@@ -1,0 +1,430 @@
+<section class="kc-reader" id="kcReader">
+  <div class="kc-reader-decoration" aria-hidden="true">
+    <span class="kc-deco-line"></span>
+    <span class="kc-deco-circle"></span>
+  </div>
+
+  <div class="kc-reader-container">
+
+    <a href="../index.html#ceos-desk" class="kc-reader-back">
+      <span aria-hidden="true">←</span>
+      Back to perspectives
+    </a>
+
+    <div id="kcReaderLoading" class="kc-reader-message">
+      Loading perspective...
+    </div>
+
+    <article id="kcReaderArticle" hidden>
+
+      <header class="kc-reader-header">
+        <div class="kc-reader-eyebrow">
+          <span class="kc-reader-eyebrow-line"></span>
+          FROM THE CEO'S DESK
+        </div>
+
+        <div id="kcReaderMeta" class="kc-reader-meta"></div>
+
+        <h1 id="kcReaderTitle"></h1>
+
+        <p id="kcReaderSubtitle" class="kc-reader-subtitle"></p>
+
+        <div class="kc-reader-author-row">
+          <div class="kc-reader-author-mark">KC</div>
+          <div class="kc-reader-author-details">
+            <strong id="kcReaderAuthor"></strong>
+            <span>Kampani Capital</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="kc-reader-header-rule">
+        <span></span>
+      </div>
+
+      <figure id="kcReaderCover" class="kc-reader-cover" hidden>
+        <img id="kcReaderImage" alt="">
+      </figure>
+
+      <div id="kcReaderBody" class="kc-reader-body"></div>
+
+      <div class="kc-reader-endmark" aria-hidden="true">
+        <span></span>
+        <span class="kc-reader-diamond"></span>
+        <span></span>
+      </div>
+
+    </article>
+
+  </div>
+
+  <div class="kc-reader-bottom-deco" aria-hidden="true">
+    <span></span>
+  </div>
+</section>
+
+<style>
+.kc-reader {
+  --kc-bg: #102137;
+  --kc-gold: #b59465;
+  --kc-white: #f6f5f2;
+  --kc-body: #cbd4df;
+  --kc-muted: #96a8bc;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--kc-bg) !important;
+  color: var(--kc-white) !important;
+  min-height: 80vh;
+  padding: 76px 30px 110px;
+  font-family: 'Manrope', 'DM Sans', Arial, sans-serif;
+}
+
+.kc-reader,
+.kc-reader * {
+  box-sizing: border-box;
+}
+
+.kc-reader-container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.kc-reader::before {
+  content: "";
+  position: absolute;
+  width: 580px;
+  height: 580px;
+  top: -340px;
+  right: -200px;
+  border: 1px solid rgba(181,148,101,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.kc-reader::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: -260px;
+  right: -125px;
+  border: 1px solid rgba(181,148,101,.09);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.kc-reader-decoration {
+  position: absolute;
+  right: max(32px, calc((100vw - 1250px)/2));
+  top: 85px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: .65;
+}
+
+.kc-deco-line {
+  width: 60px;
+  height: 1px;
+  background: var(--kc-gold);
+}
+
+.kc-deco-circle {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--kc-gold);
+  border-radius: 50%;
+}
+
+.kc-reader-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--kc-muted) !important;
+  text-decoration: none !important;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .3px;
+  margin-bottom: 85px;
+  transition: color .2s ease;
+}
+
+.kc-reader-back span {
+  color: var(--kc-gold);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.kc-reader-back:hover {
+  color: var(--kc-gold) !important;
+}
+
+.kc-reader-message {
+  color: var(--kc-body);
+  padding: 30px 0;
+  font-size: 15px;
+}
+
+.kc-reader-article,
+.kc-reader article {
+  width: 100%;
+}
+
+.kc-reader [hidden] {
+  display: none !important;
+}
+
+.kc-reader-header {
+  width: 100%;
+  max-width: 900px;
+  text-align: left !important;
+}
+
+.kc-reader-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 13px;
+  color: var(--kc-gold) !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  margin-bottom: 28px;
+}
+
+.kc-reader-eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: var(--kc-gold);
+}
+
+.kc-reader-meta {
+  color: var(--kc-gold) !important;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  margin-bottom: 19px;
+}
+
+.kc-reader h1 {
+  color: var(--kc-white) !important;
+  font-size: clamp(42px, 5.2vw, 76px) !important;
+  font-weight: 500 !important;
+  line-height: 1.13 !important;
+  letter-spacing: -2.5px;
+  text-align: left !important;
+  margin: 0 0 25px !important;
+  padding: 0 !important;
+}
+
+.kc-reader-subtitle {
+  color: var(--kc-muted) !important;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.85;
+  text-align: left !important;
+  max-width: 760px;
+  margin: 0 0 35px !important;
+}
+
+.kc-reader-author-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.kc-reader-author-mark {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(181,148,101,.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--kc-gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+}
+
+.kc-reader-author-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.kc-reader-author-details strong {
+  color: var(--kc-white) !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.kc-reader-author-details span {
+  color: var(--kc-muted);
+  font-size: 11px;
+}
+
+.kc-reader-header-rule {
+  height: 1px;
+  width: 100%;
+  background: rgba(255,255,255,.16);
+  position: relative;
+  margin-bottom: 58px;
+}
+
+.kc-reader-header-rule span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90px;
+  height: 1px;
+  background: var(--kc-gold);
+}
+
+.kc-reader-cover {
+  margin: 0 0 60px !important;
+  width: 100%;
+  max-width: 940px;
+  overflow: hidden;
+}
+
+.kc-reader-cover img {
+  display: block;
+  width: 100%;
+  max-height: 490px;
+  object-fit: cover;
+}
+
+.kc-reader-body {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: var(--kc-body) !important;
+  font-size: 16px;
+  line-height: 2.05;
+  overflow-wrap: anywhere;
+}
+
+.kc-reader-body p {
+  color: var(--kc-body) !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  text-align: left !important;
+  margin: 0 0 29px !important;
+  padding: 0 !important;
+}
+
+.kc-reader-body p:first-child {
+  color: #f0f1f3 !important;
+}
+
+.kc-reader-endmark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-top: 75px;
+}
+
+.kc-reader-endmark > span:not(.kc-reader-diamond) {
+  height: 1px;
+  width: 55px;
+  background: rgba(181,148,101,.45);
+}
+
+.kc-reader-diamond {
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--kc-gold);
+  transform: rotate(45deg);
+}
+
+.kc-reader-bottom-deco {
+  position: absolute;
+  right: -100px;
+  bottom: -170px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(181,148,101,.09);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.kc-reader-bottom-deco span {
+  position: absolute;
+  inset: 35px;
+  border: 1px solid rgba(181,148,101,.07);
+}
+
+@media (max-width: 800px) {
+  .kc-reader {
+    padding: 60px 26px 85px;
+  }
+
+  .kc-reader-back {
+    margin-bottom: 65px;
+  }
+
+  .kc-reader h1 {
+    letter-spacing: -1.7px;
+  }
+
+  .kc-reader-header-rule {
+    margin-bottom: 42px;
+  }
+
+  .kc-reader-decoration {
+    opacity: .3;
+  }
+}
+
+@media (max-width: 600px) {
+  .kc-reader {
+    padding: 45px 20px 70px;
+  }
+
+  .kc-reader-back {
+    margin-bottom: 55px;
+  }
+
+  .kc-reader h1 {
+    font-size: 40px !important;
+    letter-spacing: -1.2px;
+  }
+
+  .kc-reader-subtitle {
+    font-size: 16px;
+  }
+
+  .kc-reader-author-row {
+    margin-bottom: 38px;
+  }
+
+  .kc-reader-body {
+    font-size: 15px;
+    line-height: 1.95;
+  }
+
+  .kc-reader-body p {
+    margin-bottom: 24px !important;
+  }
+
+  .kc-reader-cover {
+    margin-bottom: 40px !important;
+  }
+
+  .kc-reader-decoration {
+    display: none;
+  }
+}
+</style>

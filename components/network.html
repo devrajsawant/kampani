@@ -1,0 +1,523 @@
+<div id="kc-network">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+
+    /* =========================================
+       KAMPANI CAPITAL - ACCESS & NETWORK
+       ========================================= */
+
+    #kc-network {
+      --kc-navy: #102138;
+      --kc-gold: #c5ad84;
+      --kc-text: #c4cfdd;
+
+      width: 100%;
+      background: var(--kc-navy);
+      font-family: 'DM Sans', sans-serif;
+      color: #ffffff;
+      box-sizing: border-box;
+    }
+
+    #kc-network *,
+    #kc-network *::before,
+    #kc-network *::after {
+      box-sizing: border-box;
+    }
+
+    #kc-network .kc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+
+    /* =========================================
+       IMAGE SLIDER
+       ========================================= */
+
+    #kc-network .kc-slider {
+      position: relative;
+      min-width: 0;
+      min-height: 560px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #263e5c, #102138);
+    }
+
+    #kc-network .kc-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 1s ease,
+        visibility 1s ease;
+    }
+
+    #kc-network .kc-slide.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #kc-network .kc-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    #kc-network .kc-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(9, 27, 52, 0.04) 0%,
+        rgba(9, 27, 52, 0.1) 45%,
+        rgba(9, 27, 52, 0.8) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* =========================================
+       CITY INFORMATION
+       ========================================= */
+
+    #kc-network .kc-city-info {
+      position: absolute;
+      bottom: 65px;
+      left: 55px;
+      z-index: 2;
+    }
+
+    #kc-network .kc-city-category {
+      display: block;
+      color: #e2cda9;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    #kc-network .kc-city-name {
+      font-family: 'Manrope', sans-serif;
+      font-size: 38px;
+      font-weight: 500;
+      letter-spacing: -0.05em;
+      line-height: 1.2;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    /* =========================================
+       SLIDER CONTROLS
+       ========================================= */
+
+    #kc-network .kc-slider-controls {
+      position: absolute;
+      bottom: 25px;
+      left: 55px;
+      right: 40px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    #kc-network .kc-dots {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    #kc-network .kc-dot {
+      width: 7px;
+      height: 7px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      padding: 0;
+      transition:
+        background 0.25s ease,
+        width 0.25s ease;
+    }
+
+    #kc-network .kc-dot.active {
+      background: var(--kc-gold);
+      width: 22px;
+      border-radius: 4px;
+    }
+
+    #kc-network .kc-arrows {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    #kc-network .kc-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(9, 27, 52, 0.35);
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease;
+    }
+
+    #kc-network .kc-arrow:hover {
+      background: var(--kc-gold);
+      color: var(--kc-navy);
+    }
+
+    /* =========================================
+       RIGHT CONTENT
+       ========================================= */
+
+    #kc-network .kc-content {
+      padding: 80px clamp(35px, 6vw, 100px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #kc-network .kc-eyebrow {
+      color: var(--kc-gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      margin-bottom: 20px;
+    }
+
+    #kc-network .kc-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(36px, 3.5vw, 50px);
+      font-weight: 500;
+      letter-spacing: -0.06em;
+      line-height: 1.15;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    #kc-network .kc-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 38px 0 30px;
+    }
+
+    #kc-network .kc-network-group {
+      margin-bottom: 25px;
+    }
+
+    #kc-network .kc-network-group:last-child {
+      margin-bottom: 0;
+    }
+
+    #kc-network .kc-group-title {
+      color: #e4eaf1;
+      font-size: 11px;
+      font-weight: 700;
+      margin: 0 0 9px;
+      letter-spacing: 0.05em;
+    }
+
+    #kc-network .kc-group-cities {
+      color: var(--kc-text);
+      font-size: 12px;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    /* =========================================
+       TABLET
+       ========================================= */
+
+    @media (max-width: 1000px) {
+
+      #kc-network .kc-layout {
+        min-height: 500px;
+      }
+
+      #kc-network .kc-slider {
+        min-height: 500px;
+      }
+
+      #kc-network .kc-content {
+        padding: 55px 35px;
+      }
+
+      #kc-network .kc-city-info {
+        left: 30px;
+      }
+
+      #kc-network .kc-slider-controls {
+        left: 30px;
+        right: 25px;
+      }
+    }
+
+    /* =========================================
+       MOBILE
+       ========================================= */
+
+    @media (max-width: 700px) {
+
+      #kc-network .kc-layout {
+        grid-template-columns: 1fr;
+      }
+
+      #kc-network .kc-slider {
+        min-height: 360px;
+        height: 360px;
+      }
+
+      #kc-network .kc-content {
+        padding: 65px 25px;
+      }
+
+      #kc-network .kc-heading {
+        font-size: 38px;
+      }
+
+      #kc-network .kc-city-info {
+        bottom: 75px;
+        left: 25px;
+      }
+
+      #kc-network .kc-city-name {
+        font-size: 32px;
+      }
+
+      #kc-network .kc-slider-controls {
+        left: 25px;
+        right: 25px;
+      }
+
+      #kc-network .kc-dots {
+        gap: 6px;
+      }
+
+      #kc-network .kc-dot {
+        width: 6px;
+        height: 6px;
+      }
+
+      #kc-network .kc-dot.active {
+        width: 18px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #kc-network .kc-slide {
+        transition: none;
+      }
+    }
+  </style>
+
+  <section class="kc-layout" id="network">
+
+    <!-- =====================================
+         LEFT: AUTOMATIC IMAGE SLIDER
+         ===================================== -->
+
+    <div class="kc-slider" aria-label="Our network locations">
+
+      <!-- 01 INDIA -->
+      <div class="kc-slide active">
+        <img
+          src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=85"
+          alt="Mumbai skyline representing India network"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">DOMESTIC NETWORK</span>
+          <h3 class="kc-city-name">India</h3>
+        </div>
+      </div>
+
+      <!-- 02 LONDON -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=85"
+          alt="London skyline"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">UNITED KINGDOM</span>
+          <h3 class="kc-city-name">London</h3>
+        </div>
+      </div>
+
+      <!-- 03 DUBAI -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&q=85"
+          alt="Dubai skyline"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">UNITED ARAB EMIRATES</span>
+          <h3 class="kc-city-name">Dubai</h3>
+        </div>
+      </div>
+
+      <!-- 04 SINGAPORE -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=1200&q=85"
+          alt="Singapore skyline"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">SINGAPORE</span>
+          <h3 class="kc-city-name">Singapore</h3>
+        </div>
+      </div>
+
+      <!-- 05 HONG KONG -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=1200&q=85"
+          alt="Hong Kong skyline"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">HONG KONG</span>
+          <h3 class="kc-city-name">Hong Kong</h3>
+        </div>
+      </div>
+
+      <!-- 06 TOKYO -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=85"
+          alt="Tokyo skyline"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">JAPAN</span>
+          <h3 class="kc-city-name">Tokyo</h3>
+        </div>
+      </div>
+
+      <!-- 07 IRELAND -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1549918864-48ac978761a4?auto=format&fit=crop&w=1200&q=85"
+          alt="Ireland landscape"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">EUROPE</span>
+          <h3 class="kc-city-name">Ireland</h3>
+        </div>
+      </div>
+
+      <!-- 08 KOREA -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?auto=format&fit=crop&w=1200&q=85"
+          alt="Seoul South Korea"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">SOUTH KOREA</span>
+          <h3 class="kc-city-name">Korea</h3>
+        </div>
+      </div>
+
+      <!-- 09 ITALY -->
+      <div class="kc-slide">
+        <img
+          src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1200&q=85"
+          alt="Rome Italy"
+          loading="lazy"
+        />
+
+        <div class="kc-city-info">
+          <span class="kc-city-category">EUROPE</span>
+          <h3 class="kc-city-name">Italy</h3>
+        </div>
+      </div>
+
+      <!-- SLIDER NAVIGATION -->
+      <div class="kc-slider-controls">
+
+        <div class="kc-dots" aria-label="Slide navigation"></div>
+
+        <div class="kc-arrows">
+          <button
+            class="kc-arrow kc-prev"
+            type="button"
+            aria-label="Previous location"
+          >‹</button>
+
+          <button
+            class="kc-arrow kc-next"
+            type="button"
+            aria-label="Next location"
+          >›</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- =====================================
+         RIGHT: NETWORK INFORMATION
+         ===================================== -->
+
+    <div class="kc-content">
+
+      <span class="kc-eyebrow">
+        04 / OUR NETWORK
+      </span>
+
+      <h2 class="kc-heading">
+        Access and Network
+      </h2>
+
+      <div class="kc-divider"></div>
+
+      <div class="kc-network-group">
+        <h3 class="kc-group-title">INDIA</h3>
+
+        <p class="kc-group-cities">
+          Mumbai · Delhi · Bengaluru · Pune · Kochi ·
+          Ahmedabad · Coimbatore
+        </p>
+      </div>
+
+      <div class="kc-network-group">
+        <h3 class="kc-group-title">
+          INTERNATIONAL NETWORK
+        </h3>
+
+        <p class="kc-group-cities">
+          London · Dubai · Singapore · Hong Kong ·
+          Tokyo · Ireland · Korea · Italy
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

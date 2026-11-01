@@ -1,0 +1,340 @@
+<section class="kc-events" id="events">
+  <div class="kc-events-container">
+
+    <div class="kc-events-header">
+      <div class="kc-events-heading">
+        <div class="kc-events-eyebrow">06 / OUR CALENDAR</div>
+        <h2>Events</h2>
+      </div>
+    </div>
+
+    <div class="kc-events-status" id="kcEventsStatus">
+      Loading events...
+    </div>
+
+    <div class="kc-events-content" id="kcEventsContent" hidden>
+
+      <div class="kc-events-viewport" id="kcEventsViewport">
+        <div class="kc-events-track" id="kcEventsTrack"></div>
+      </div>
+
+      <div class="kc-events-progress">
+        <div class="kc-events-progress-fill"
+             id="kcEventsProgress"></div>
+      </div>
+
+      <div class="kc-events-footer">
+        <div class="kc-events-controls">
+          <button type="button" id="kcEventsPrev"
+                  aria-label="Previous events">←</button>
+          <button type="button" id="kcEventsNext"
+                  aria-label="Next events">→</button>
+        </div>
+
+        <span class="kc-events-counter"
+              id="kcEventsCounter"></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .kc-events,
+  .kc-events * {
+    box-sizing: border-box;
+  }
+
+  .kc-events {
+    background: #ffffff !important;
+    padding: 105px 24px 100px;
+    font-family: 'Manrope', 'DM Sans', Arial, sans-serif;
+    color: #102137;
+  }
+
+  .kc-events-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .kc-events [hidden] {
+    display: none !important;
+  }
+
+  /* Heading */
+
+  .kc-events-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+
+  .kc-events-eyebrow {
+    color: #a4865d !important;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 17px;
+  }
+
+  .kc-events h2 {
+    color: #102137 !important;
+    font-size: clamp(40px, 5vw, 54px) !important;
+    font-weight: 500 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -1.8px;
+    margin: 0 !important;
+  }
+
+  .kc-events-intro {
+    max-width: 330px;
+    color: #697483 !important;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0 0 5px !important;
+  }
+
+  /* Carousel */
+
+  .kc-events-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .kc-events-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kc-events-track {
+    display: flex;
+    gap: 24px;
+  }
+
+  .kc-event-card {
+    position: relative;
+    isolation: isolate;
+    flex: 0 0 calc((100% - 24px) / 2);
+    min-width: 0;
+    min-height: 310px;
+    padding: 32px;
+    background: #f7f7f5;
+    border: 1px solid #dce1e5;
+    scroll-snap-align: start;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .kc-event-card.has-image {
+    background: #102137;
+    border-color: #102137;
+  }
+
+  .kc-event-card-image,
+  .kc-event-card-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .kc-event-card-image {
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .kc-event-card-overlay {
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(9, 21, 35, .85) 0%,
+      rgba(9, 21, 35, .64) 65%,
+      rgba(9, 21, 35, .48) 100%
+    );
+  }
+
+  .kc-event-subtitle {
+    color: #9e8059 !important;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .kc-event-date {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: #9e8059;
+    margin-bottom: 20px;
+  }
+
+  .kc-event-month {
+    font-size: clamp(34px, 4vw, 46px);
+    font-weight: 400;
+    letter-spacing: -1.8px;
+    line-height: 1;
+  }
+
+  .kc-event-year {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .kc-event-title {
+    color: #102137 !important;
+    font-size: clamp(18px, 2vw, 23px) !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+    letter-spacing: -.4px;
+    margin: 0 !important;
+    overflow-wrap: anywhere;
+  }
+
+  .kc-event-card.has-image .kc-event-subtitle,
+  .kc-event-card.has-image .kc-event-date {
+    color: #e1c59b !important;
+  }
+
+  .kc-event-card.has-image .kc-event-title {
+    color: #ffffff !important;
+  }
+
+  /* Progress indicator */
+
+  .kc-events-progress {
+    height: 8px;
+    background: #edf0f1;
+    margin-top: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+.kc-events-progress-fill {
+  height: 100%;
+  width: 50%;
+  background: #bca47f;
+  border-radius: 10px;
+  transform: translateX(0);
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+  /* Footer */
+
+  .kc-events-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 27px;
+  }
+
+  .kc-events-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .kc-events-controls button {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+    border: 1px solid #dce1e5 !important;
+    background: #ffffff !important;
+    color: #102137 !important;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+
+  .kc-events-controls button:hover:not(:disabled) {
+    background: #102137 !important;
+    color: #ffffff !important;
+  }
+
+  .kc-events-controls button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+  }
+
+  .kc-events-counter {
+    color: #697483;
+    font-size: 12px;
+    letter-spacing: .2px;
+  }
+
+  .kc-events-status {
+    padding: 40px 0;
+    color: #697483;
+    font-size: 14px;
+  }
+
+  /* Tablet */
+
+  @media (max-width: 850px) {
+    .kc-events {
+      padding: 75px 22px;
+    }
+
+    .kc-events-header {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+
+    .kc-events-intro {
+      max-width: 500px;
+    }
+  }
+
+  /* Mobile */
+
+  @media (max-width: 650px) {
+    .kc-events {
+      padding: 65px 18px;
+    }
+
+    .kc-events-track {
+      gap: 14px;
+    }
+
+    .kc-event-card {
+      flex-basis: 100%;
+      min-height: 280px;
+      padding: 27px 24px;
+    }
+
+    .kc-event-month {
+      font-size: 40px;
+    }
+
+    .kc-event-title {
+      font-size: 20px !important;
+    }
+
+    .kc-events-controls button {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kc-events-viewport {
+      scroll-behavior: auto;
+    }
+  }
+</style>

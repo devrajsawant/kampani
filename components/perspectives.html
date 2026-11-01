@@ -1,0 +1,429 @@
+<section class="kc-perspectives" id="ceos-desk">
+  <div class="kc-perspectives-inner" id="blogs">
+
+    <div class="kc-perspectives-top">
+      <div class="kc-perspectives-heading">
+        <div class="kc-perspectives-eyebrow">
+          <span class="kc-perspectives-gold-line"></span>
+          05 / IDEAS, INSIGTHS & PERSPECTIVES.
+        </div>
+        <h2>From the CEO's <em>Desk.</em></h2>
+      </div>
+    </div>
+
+    <div class="kc-perspectives-divider"></div>
+
+    <div class="kc-perspectives-status" id="kcBlogsStatus">
+      Loading perspectives...
+    </div>
+
+    <div class="kc-perspectives-slider" id="kcBlogsSlider" hidden>
+
+      <div class="kc-perspectives-viewport" id="kcBlogsViewport">
+        <div class="kc-perspectives-track" id="kcBlogGrid"></div>
+      </div>
+
+      <div class="kc-perspectives-progress">
+        <div class="kc-perspectives-progress-fill"
+             id="kcBlogsProgress"></div>
+      </div>
+
+      <div class="kc-perspectives-footer">
+        <div class="kc-perspectives-controls">
+          <button type="button" id="kcBlogsPrev"
+                  aria-label="Previous perspective">←</button>
+          <button type="button" id="kcBlogsNext"
+                  aria-label="Next perspective">→</button>
+        </div>
+
+        <span class="kc-perspectives-counter"
+              id="kcBlogsCounter"></span>
+      </div>
+    </div>
+
+    <div class="kc-perspectives-bottom">
+      <span>INSIGHTS FROM KAMPANI CAPITAL</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .kc-perspectives {
+    --kc-navy: #102137;
+    --kc-card: #1b304b;
+    --kc-gold: #b59465;
+    --kc-muted: #aebdcd;
+    --kc-gap: 24px;
+
+    background: var(--kc-navy) !important;
+    color: #ffffff !important;
+    padding: 110px 30px 80px;
+    font-family: 'Manrope', 'DM Sans', Arial, sans-serif;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+
+  .kc-perspectives,
+  .kc-perspectives * {
+    box-sizing: border-box;
+  }
+
+  .kc-perspectives [hidden] {
+    display: none !important;
+  }
+
+  .kc-perspectives::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    top: -280px;
+    right: -150px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(181,148,101,.11),
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .kc-perspectives-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+
+  .kc-perspectives-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 65px;
+    margin-bottom: 48px;
+  }
+
+  .kc-perspectives-heading {
+    flex: 1;
+  }
+
+  .kc-perspectives-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    color: var(--kc-gold) !important;
+    margin-bottom: 22px;
+  }
+
+  .kc-perspectives-gold-line {
+    display: inline-block;
+    width: 29px;
+    height: 1px;
+    background: var(--kc-gold);
+  }
+
+  .kc-perspectives h2 {
+    color: #ffffff !important;
+    font-size: clamp(38px, 5vw, 65px) !important;
+    line-height: 1.12 !important;
+    font-weight: 500 !important;
+    letter-spacing: -2.5px;
+    margin: 0 !important;
+  }
+
+  .kc-perspectives h2 em {
+    font-style: normal;
+    color: var(--kc-gold) !important;
+  }
+
+  .kc-perspectives-intro {
+    max-width: 350px;
+    font-size: 14px;
+    line-height: 2;
+    color: var(--kc-muted) !important;
+    margin: 0 0 5px !important;
+  }
+
+  .kc-perspectives-divider {
+    height: 1px;
+    background: rgba(255,255,255,.15);
+    margin-bottom: 40px;
+  }
+
+  /* Slider */
+
+  .kc-perspectives-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .kc-perspectives-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .kc-perspectives-track {
+    display: flex;
+    gap: var(--kc-gap);
+    align-items: stretch;
+  }
+
+  /* Cards */
+
+  .kc-perspective-card {
+    flex: 0 0 calc((100% - 2 * var(--kc-gap)) / 3);
+    min-width: 0;
+    min-height: 315px;
+    background: var(--kc-card);
+    border: 1px solid rgba(255,255,255,.07);
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+    transition:
+      transform .3s ease,
+      border-color .3s ease;
+  }
+
+  .kc-perspective-card:hover {
+    border-color: rgba(181,148,101,.45);
+  }
+
+  .kc-perspective-content {
+    padding: 35px 30px 32px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .kc-perspective-meta {
+    color: var(--kc-gold) !important;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    line-height: 1.6;
+  }
+
+  .kc-perspectives .kc-perspective-title {
+    font-size: 23px !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    letter-spacing: -.5px;
+    color: #ffffff !important;
+    margin: 0 0 18px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .kc-perspective-excerpt {
+    color: var(--kc-muted) !important;
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0 0 30px !important;
+    flex: 1;
+    overflow-wrap: anywhere;
+     text-align: justify;
+  }
+
+  .kc-perspective-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 14px;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 9px;
+    border-bottom: 1px solid var(--kc-gold);
+    transition: color .2s ease;
+    cursor: pointer;
+  }
+
+  .kc-perspective-link:hover {
+    color: var(--kc-gold) !important;
+  }
+
+  .kc-perspective-arrow {
+    color: var(--kc-gold);
+    font-size: 17px;
+    transition: transform .2s ease;
+  }
+
+  .kc-perspective-link:hover .kc-perspective-arrow {
+    transform: translate(3px,-3px);
+  }
+
+  /* Progress bar */
+
+  .kc-perspectives-progress {
+    height: 7px;
+    background: rgba(255,255,255,.13);
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kc-perspectives-progress-fill {
+    height: 100%;
+    width: 100%;
+    background: var(--kc-gold);
+    border-radius: 10px;
+    transform: translateX(0);
+    transition:
+      transform .35s ease,
+      width .35s ease;
+  }
+
+  /* Slider footer */
+
+  .kc-perspectives-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 27px;
+  }
+
+  .kc-perspectives-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .kc-perspectives-controls button {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+    border: 1px solid rgba(255,255,255,.25) !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    font-size: 19px;
+    font-weight: 400;
+    cursor: pointer;
+    transition:
+      background .2s ease,
+      color .2s ease;
+  }
+
+  .kc-perspectives-controls button:hover:not(:disabled) {
+    background: var(--kc-gold) !important;
+    color: var(--kc-navy) !important;
+  }
+
+  .kc-perspectives-controls button:disabled {
+    opacity: .3;
+    cursor: not-allowed;
+  }
+
+  .kc-perspectives-counter {
+    color: var(--kc-muted);
+    font-size: 12px;
+    letter-spacing: .2px;
+  }
+
+  .kc-perspectives-status {
+    color: var(--kc-muted);
+    font-size: 14px;
+    padding: 40px 0;
+  }
+
+  .kc-perspectives-bottom {
+    margin-top: 58px;
+    padding-top: 23px;
+    border-top: 1px solid rgba(255,255,255,.13);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: rgba(255,255,255,.45);
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+
+  /* Tablet */
+
+  @media (max-width: 900px) {
+    .kc-perspectives {
+      padding: 80px 25px 65px;
+    }
+
+    .kc-perspectives-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+
+    .kc-perspectives-track {
+      --kc-gap: 20px;
+    }
+
+    .kc-perspective-card {
+      flex-basis: calc((100% - var(--kc-gap)) / 2);
+    }
+
+    .kc-perspectives-intro {
+      max-width: 550px;
+    }
+  }
+
+  /* Mobile */
+
+  @media (max-width: 600px) {
+    .kc-perspectives {
+      padding: 65px 20px 45px;
+    }
+
+    .kc-perspectives h2 {
+      font-size: 40px !important;
+      letter-spacing: -1.5px;
+    }
+
+    .kc-perspectives-track {
+      --kc-gap: 14px;
+    }
+
+    .kc-perspective-card {
+      flex-basis: 100%;
+      min-height: 280px;
+    }
+
+    .kc-perspective-content {
+      padding: 28px 23px;
+    }
+
+    .kc-perspectives-controls button {
+      width: 42px;
+      height: 42px;
+    }
+
+    .kc-perspectives-bottom {
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 40px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kc-perspectives-viewport {
+      scroll-behavior: auto;
+    }
+
+    .kc-perspective-card,
+    .kc-perspective-arrow,
+    .kc-perspectives-progress-fill {
+      transition: none;
+    }
+  }
+</style>

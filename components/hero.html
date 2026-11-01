@@ -1,0 +1,238 @@
+<div id="kc-hero">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    #kc-hero {
+      --navy: #091b34;
+      --gold: #d3bea0;
+
+      width: 100%;
+      min-height: 660px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--navy);
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      box-sizing: border-box;
+    }
+
+    #kc-hero *,
+    #kc-hero *::before,
+    #kc-hero *::after {
+      box-sizing: border-box;
+    }
+
+    /* Background image */
+    #kc-hero .kc-background {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url('https://zsites-60092316313.zohostratus.in/high-angle-shot-bandra-worli-sealink-mumbai-enveloped-with-fog.webp');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+
+    /* Navy gradient overlay */
+    #kc-hero .kc-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(
+          90deg,
+          #091b34 0%,
+          rgba(9,27,52,0.98) 25%,
+          rgba(9,27,52,0.72) 49%,
+          rgba(9,27,52,0.2) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(9,27,52,0.5),
+          rgba(9,27,52,0.04)
+        );
+    }
+
+    /* Content container */
+    #kc-hero .kc-container {
+      width: min(1200px, calc(100% - 80px));
+      margin: 0 auto;
+      padding: 75px 0 105px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #kc-hero .kc-eyebrow {
+      display: block;
+      color: #d9b989;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    /* Main headline */
+    #kc-hero .kc-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(38px, 4.5vw, 64px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 0 28px;
+    }
+
+    #kc-hero .kc-title .kc-line {
+      display: block;
+    }
+
+    #kc-hero .kc-title .kc-line + .kc-line {
+      margin-top: clamp(16px, 2vw, 28px);
+    }
+
+    #kc-hero .kc-title .kc-gold {
+      color: var(--gold);
+      font-style: normal;
+      white-space: nowrap;
+    }
+
+    /* CTA button */
+    #kc-hero .kc-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 17px 22px;
+      background: #ffffff;
+      border: 1px solid #ffffff;
+      color: #091b34;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    #kc-hero .kc-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    #kc-hero .kc-button-arrow {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      #kc-hero {
+        min-height: 630px;
+      }
+
+      #kc-hero .kc-container {
+        width: calc(100% - 48px);
+      }
+
+      #kc-hero .kc-title {
+        font-size: clamp(32px, 4.5vw, 42px);
+        letter-spacing: -0.04em;
+      }
+
+      #kc-hero .kc-title .kc-gold {
+        white-space: normal;
+      }
+
+      #kc-hero .kc-overlay {
+        background: linear-gradient(
+          90deg,
+          rgba(9,27,52,0.98),
+          rgba(9,27,52,0.45)
+        );
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 620px) {
+      #kc-hero {
+        min-height: 650px;
+      }
+
+      #kc-hero .kc-background {
+        background-position: 62% center;
+      }
+
+      #kc-hero .kc-overlay {
+        background: linear-gradient(
+          90deg,
+          rgba(9,27,52,0.97),
+          rgba(9,27,52,0.72)
+        );
+      }
+
+      #kc-hero .kc-container {
+        width: calc(100% - 38px);
+        padding: 90px 0 110px;
+      }
+
+      #kc-hero .kc-title {
+        font-size: clamp(30px, 7.5vw, 40px);
+        line-height: 1.12;
+        letter-spacing: -0.045em;
+      }
+
+      #kc-hero .kc-title .kc-gold {
+        white-space: normal;
+      }
+
+      #kc-hero .kc-eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.14em;
+      }
+
+      #kc-hero .kc-bottom-inner {
+        width: calc(100% - 38px);
+        font-size: 9px;
+      }
+
+      #kc-hero .kc-scroll {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #kc-hero .kc-button {
+        transition: none;
+      }
+    }
+  </style>
+
+  <!-- Background image -->
+  <div class="kc-background" aria-hidden="true"></div>
+
+  <!-- Gradient overlay -->
+  <div class="kc-overlay" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <section class="kc-container" id="top">
+
+    <h1 class="kc-title">
+      <span class="kc-line">Bespoke financial solutions.</span>
+      <span class="kc-line kc-gold">Best Of India &amp; The World</span>
+    </h1>
+
+    <a href="#expertise" class="kc-button">
+      Explore our expertise
+      <span class="kc-button-arrow">↗</span>
+    </a>
+
+  </section>
+</div>

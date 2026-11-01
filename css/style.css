@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #ffffff;
+  color: #1b2b40;
+  font-family: 'DM Sans', sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.component-error {
+  padding: 12px 20px;
+  background: #fff3f2;
+  color: #8a1c13;
+  font: 14px/1.5 sans-serif;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
